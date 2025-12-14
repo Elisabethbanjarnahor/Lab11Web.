@@ -1,44 +1,33 @@
 <?php
 $db = new Database();
-
-// Ambil ID dari URL
 $id = $_GET['id'] ?? null;
 
-// Validasi ID
 if (!$id) {
-    echo "<p>ID tidak ditemukan</p>";
-    exit;
+    echo "<p>ID artikel tidak ditemukan</p>";
+    return;
 }
 
-// Ambil data artikel berdasarkan ID
 $artikel = $db->get('artikel', "id=$id");
 
-$form = new Form('', 'Update');
-
-// Jika form disubmit
 if ($_POST) {
-    $data = [
+    $db->update('artikel', [
         'judul' => $_POST['judul'],
         'isi'   => $_POST['isi']
-    ];
+    ], "id=$id");
 
-    $update = $db->update('artikel', $data, "id=$id");
-
-    if ($update) {
-        header("Location: /lab11_php_oop/artikel");
-        exit;
-    } else {
-        echo "<p style='color:red'>Gagal mengupdate data</p>";
-    }
+    header("Location: /lab11_php_oop/index.php/artikel/index");
+    exit;
 }
 ?>
 
 <h3>Ubah Artikel</h3>
 
-<?php
-$form->addField('judul', 'Judul Artikel', 'text', $artikel['judul']);
-$form->addField('isi', 'Isi Artikel', 'textarea', $artikel['isi']);
-$form->displayForm();
-?>
+<form method="post">
+    <label>Judul Artikel</label>
+    <input type="text" name="judul" value="<?= $artikel['judul']; ?>" required>
 
-<a href="/lab11_php_oop/artikel">← Kembali</a>
+    <label>Isi Artikel</label>
+    <textarea name="isi" required><?= $artikel['isi']; ?></textarea>
+
+    <input type="submit" value="Update Artikel">
+</form>
