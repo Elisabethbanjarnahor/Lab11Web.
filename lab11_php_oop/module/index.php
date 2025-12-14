@@ -1,31 +1,21 @@
 <?php
 $db = new Database();
-$query = $db->query("SELECT * FROM artikel");
+$data = $db->query("SELECT * FROM artikel");
 ?>
 
-<h3>🍜 Data Artikel</h3>
-
-<a href="/lab11_php_oop/artikel/tambah" class="action-link">➕ Tambah Artikel</a>
-
-<br><br>
+<h3>Daftar Artikel</h3>
+<a href="/lab11_php_oop/module/artikel/tambah.php" class="action-link">+ Tambah Artikel</a>
 
 <table>
     <tr>
-        <th>No</th>
         <th>Judul</th>
-        <th>Isi</th>
-        <th>Aksi</th>
+        <th>Isi Artikel</th>
     </tr>
 
-    <?php $no = 1; ?>
-    <?php while ($row = $query->fetch_assoc()) : ?>
-        <tr>
-            <td><?= $no++; ?></td>
-            <td><?= $row['judul']; ?></td>
-            <td><?= $row['isi']; ?></td>
-            <td style="text-align:center;">
-                <a href="/lab11_php_oop/artikel/ubah?id=<?= $row['id']; ?>" class="action-link">✏️ Ubah</a>
-            </td>
-        </tr>
+    <?php  while ($row = $data->fetch_assoc()): ?>
+    <tr>
+        <td><?= $row['judul']; ?></td>
+        <td><?= $row['isi']; ?></td>
+    </tr>
     <?php endwhile; ?>
 </table>
