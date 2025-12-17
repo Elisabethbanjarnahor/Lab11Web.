@@ -205,4 +205,7 @@ Class ini adalah Form Generator. Fungsinya untuk membuat kode HTML `<form>` seca
         * Jika `radio/checkbox`, buat pilihan bulatan/centang.
         * Jika `password`, buat input yang teksnya tersembunyi.
         * Jika tidak ditentukan, defaultnya adalah `text` biasa.
+
+
+![foto](https://github.com/Elisabethbanjarnahor/Lab11Web./blob/7648f2299fd1077ca421e86751b3ef6257ff9eba/Screenshot%202025-12-17%20154936.png)
       
