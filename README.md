@@ -208,4 +208,6 @@ Class ini adalah Form Generator. Fungsinya untuk membuat kode HTML `<form>` seca
 
 
 ![foto](https://github.com/Elisabethbanjarnahor/Lab11Web./blob/7648f2299fd1077ca421e86751b3ef6257ff9eba/Screenshot%202025-12-17%20154936.png)
+
+![[foto](https://github.com/Elisabethbanjarnahor/Lab11Web./blob/4ccaecfcc34fe099968786fe84edf72a89b80b95/Screenshot%202025-12-17%20154906.png)
       
